@@ -20,6 +20,7 @@ export class CourseComponent {
     constructor() {
         this.currentTimeVal();
     }
+
     getTitle() {
         return this.courseTitle;
     }
