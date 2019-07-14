@@ -1,0 +1,14 @@
+<!-- <i class="fa fa-heart " [class.like]="inputParam.like" [class.dislike]="!inputParam.like" (click)="changeLikeStatus()"></i> -->
+<i class="fa fa-heart " [ngClass]="{
+    'like': inputParam.like,
+    'dislike':!inputParam.like
+}" (click)="changeLikeStatus()"></i>
+<div class="text-center" [ngStyle]="{
+    'background-color': inputParam.like ? 'red' : 'gray',
+    'font-weight': inputParam.like ? '900':'400'
+}">{{inputParam.count}}</div>
+<!-- <i class="fa fa-heart dislike"></i> -->
+<!-- <i class="fa fa-heart"></i> -->
+
+<!-- <i class="far fa-heart"></i> -->
+<!-- <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, qui?</h3> -->

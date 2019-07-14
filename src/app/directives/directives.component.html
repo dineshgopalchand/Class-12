@@ -1,0 +1,114 @@
+<div>
+    <div class="row">
+        <div class="col">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <span class="btn btn-link nav-link " (click)="activeTab='course'" [class.active]="activeTab=='course'">Course</span>
+                </li>
+                <li class="nav-item">
+                    <span class="btn btn-link nav-link" (click)="activeTab='resdemo'" [class.active]="activeTab=='resdemo'">Resulable Demo </span>
+                </li>
+                <li class="nav-item">
+                    <span class="btn btn-link nav-link" (click)="activeTab='message'" [class.active]="activeTab=='message'">Message</span>
+                </li>
+                <li class="nav-item">
+                    <span class="btn btn-link nav-link" (click)="activeTab='message'" [class.active]="activeTab=='custom'">Custom Directive</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div [ngSwitch]="activeTab">
+        <div *ngSwitchCase="'course'">
+            <div class="row">
+                <div class="col-6">
+                    <h3>Courses List</h3>
+                    <div class="form-group">
+                        <input type="text" class="form-control" #newCourse placeholder="Add New Course" (keyup.enter)="addNewCourse(newCourse)">
+                    </div>
+                    <div *ngIf="courseList.length==0;then noCourseAvail else courseListSection "></div>
+                    <ng-template #noCourseAvail>
+                        <p>No Course Availble</p>
+                    </ng-template>
+                    <ng-template #courseListSection>
+                        <ul class="list list-group">
+                            <li class="list-group-item" *ngFor="let course of courseList;index as i;first as f; last as l;odd as o;even as e" [class.list-group-item-dark]="e">
+                                <button class="btn btn-danger" (click)="deleteCourse(course)">Delete</button> {{i+1}}. {{course.name}}
+                                <!-- <small>{{'first position: '+f}}</small>
+                            <small>{{'Last position: '+l}}</small> -->
+                            </li>
+                        </ul>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+        <div *ngSwitchCase="'resdemo'">
+            <app-demo-reusable></app-demo-reusable>
+        </div>
+        <div *ngSwitchCase="'message'">
+            This dummay Message to show in Accordian
+        </div>
+        <div *ngSwitchCase="'custom'">
+            <div class="form-group">
+                <input type="text" class="form-control" [appInputFormat]="'uppercase'" [empty-color]="'red'" [fill-color]="'blue'" #titleInput name="title" placeholder="Enter Title">
+            </div>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, iste.</div>
+        </div>
+        <div *ngSwitchDefault>
+            Not a valid selection
+        </div>
+    </div>
+    <!-- <div class="row" *ngIf="activeTab == 'course'"> -->
+    <div class="row" [hidden]="activeTabee!= 'course'">
+        <!-- <div class="row" [hidden]="activeTab != 'course'"> -->
+        <div class="col-6">
+            <h3>Courses List</h3>
+            <div class="form-group">
+                <input type="text" class="form-control" #newCourse placeholder="Add New Course" (keyup.enter)="addNewCourse(newCourse)">
+            </div>
+            <div *ngIf="courseList.length==0;then noCourseAvail else courseListSection "></div>
+            <ng-template #noCourseAvail>
+                <p>No Course Availble</p>
+            </ng-template>
+            <ng-template #courseListSection>
+                <ul class="list list-group">
+                    <li class="list-group-item" *ngFor="let course of courseList;index as i;first as f; last as l;odd as o;even as e" [class.list-group-item-dark]="e">
+                        <button class="btn btn-danger" (click)="deleteCourse(course)">Delete</button> {{i+1}}. {{course.name}}
+                        <!-- <small>{{'first position: '+f}}</small>
+                    <small>{{'Last position: '+l}}</small> -->
+                    </li>
+                </ul>
+            </ng-template>
+        </div>
+        <div class="col-6">
+            <!-- <h3>Courses List</h3> -->
+            <!-- <ul class="list list-group">
+                <ng-template ngFor let-course [ngForOf]="courseList" let-i="index">
+                    <li class="list-group-item" [class.list-group-item-dark]="i%2==0"> {{i+1}}. {{course.name}}</li>
+                </ng-template>
+            </ul> -->
+            <app-courses></app-courses>
+        </div>
+    </div>
+</div>
+<!-- <div *ngIf="activeTab == 'resdemo'"> -->
+<div [hidden]="activeTab != 'resdemo'" class="text-center">
+    <!-- <app-demo-reusable></app-demo-reusable> -->
+</div>
+<!-- <div *ngIf="activeTab == 'message'"> -->
+<div [hidden]="activeTab != 'message'">
+    <!-- This dummay Message to show in Accordian -->
+</div>
+
+<!-- <div>{{studentDetails |json}}</div> -->
+<!-- <div>{{studentDetails[0].ist[0].istname}}</div> -->
+<!-- <div>{{studentDetails[3].area}}</div> -->
+<!-- <div>{{studentDetails[3].area}}</div> -->
+<!-- <div>{{studentDetails[0].ist[0].branch[0].students[0].address.add2.street}}</div> -->
+<!-- <div>{{studentDetails[0].ist[0].branch[0].students[1].address?.add2?.street}}</div> -->
+<!-- <div *ngIf="studentDetails[0].ist[0].branch[0].students[1]">
+    <div *ngIf="studentDetails[0].ist[0].branch[0].students[1].address">
+        <div *ngIf="studentDetails[0].ist[0].branch[0].students[1].address.add2">
+            {{studentDetails[0].ist[0].branch[0].students[1].address.add2.street}}
+        </div>
+    </div>
+</div> -->

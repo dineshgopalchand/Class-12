@@ -1,0 +1,32 @@
+<form ngForm #contactForm="ngForm" (ngSubmit)="formSubmit(contactForm)">
+    <div class="form-group">
+        <input type="text" class="form-control" name="firstname" placeholder="First Name" #firstName="ngModel" ngModel required minlength="3" maxlength="15" pattern="^[a-zA-Z ]+$" (keyup)="inputChange(firstName)">
+    </div>
+    <div class="alert alert-danger" *ngIf="firstName.errors && firstName.touched">
+        <div *ngIf="firstName.errors.required ">
+            First name is required
+        </div>
+        <div *ngIf="firstName.errors.minlength">First name length is less then 3 </div>
+        <div *ngIf="firstName.errors.maxlength">First name length is More then 15 </div>
+        <div *ngIf="firstName.errors.pattern">First name is not valid </div>
+    </div>
+    <div class="form-group">
+        <input type="text" required ngModel #lastName="ngModel" class="form-control" name="lastname" placeholder="Last Name">
+    </div>
+    <div class="alert alert-danger" *ngIf="lastName.errors && lastName.touched">
+        <div *ngIf="lastName.errors.required ">
+            Last name is required
+        </div>
+    </div>
+    <div class="form-group">
+        <textarea name="comment" ngModel class="form-control" placeholder="Ener your comment"></textarea>
+    </div>
+    <div class="d-flex">
+        <button class="btn btn-primary" type="submit" [disabled]="contactForm.invalid">Submit</button>
+        <div class="ml-5" *ngIf="contactForm.errors">{{contactForm.errors.formError}}</div>
+    </div>
+
+</form>
+<div>
+    {{contactForm.errors | json}}
+</div>

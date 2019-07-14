@@ -1,0 +1,12 @@
+.fa-heart.like {
+    color: #cc0000;
+}
+
+.fa-heart.dislike {
+    color: #565656;
+}
+
+.fa {
+    font-size: 5rem;
+    cursor: pointer;
+}

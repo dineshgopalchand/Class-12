@@ -1,0 +1,18 @@
+.full-page-card {
+    height: 100vh;
+}
+
+body {
+    /* font-size: 40px !important; */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.full-page-card>.card-header,
+.full-page-card>.card-footer {
+    padding: 0;
+    border-radius: 0;
+}
+
+.full-page-card>.card-body {
+    overflow: auto;
+}

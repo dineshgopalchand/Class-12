@@ -1,0 +1,9 @@
+<script>
+var ele=document.querySelector('app-favourite h3');
+var root=ele.createShadowRoot();
+root.innerHTML=`
+<span class="show-heighlight">Some text</span>
+<style>.show-heighlight{background-color:yellow;color:blue;}</style>
+`;
+
+</script>

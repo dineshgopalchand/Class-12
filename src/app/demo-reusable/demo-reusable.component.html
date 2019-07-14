@@ -1,0 +1,3 @@
+<div *ngFor="let item of postDetails">
+    <app-favourite [fav-item-details]="item" (likeChange)="postChange($event)"></app-favourite>
+</div>

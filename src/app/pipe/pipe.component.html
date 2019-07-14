@@ -1,0 +1,37 @@
+<!-- <div>{{course | json}}</div>
+<div>{{course.title | uppercase}}</div>
+<div>{{course.title | lowercase}}</div>
+<div>{{course.title | titlecase}}</div>
+<div>{{course.rating | number}}</div>
+<div>{{course.rating1 | number}}</div>
+<div>{{course.rating | number:'1.0-0'}}</div>
+<div>{{course.rating | number:'1.2-2'}}</div>
+<div>{{course.rating | number:'2.2-2'}}</div>
+<div>{{course.rating | number:'5.0-1'}}</div>
+<div>{{course.rating2 | number:'5.0-1'}}</div>
+<div>{{course.students | number:'1.0-0'}}</div> -->
+<!-- <div>{{course.price | currency}}</div>
+<div>{{course.price | currency:'INR'}}</div>
+<div>{{course.price| currency:'INR'}}</div>
+<div>{{course.price | currency:'DKK'}}</div>
+<div>{{course.price | currency:'USD'}}</div>
+<div>{{course.price | currency:'EUR'}}</div>
+<div>{{course.price | currency:'AUD'}}</div> -->
+<div>{{course.releaseDate | date}}</div>
+<div>{{course.releaseDate | date:'short'}}</div>
+
+<!-- <ul>
+    <li *ngFor="let item of convertedCourse"> {{item[0]}} : {{item[1]}}
+    </li>
+</ul> -->
+
+<!-- <ul style="background-color:gray;">
+    <li *ngFor="let item of course | keyvalue">
+        {{item.key}} : {{item.value}}
+    </li>
+</ul> -->
+<div>
+    {{course.details | summary:limit}} <button class="btn btn-link" (click)="limit=(limit==''?100:'')">
+        {{limit==''?'Show Less':'Show More'}}
+    </button>
+</div>

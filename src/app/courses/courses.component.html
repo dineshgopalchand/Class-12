@@ -1,3 +1,17 @@
-<p>
-  courses works!
-</p>
+<div style="text-align: left;">
+    <h3>
+        {{title}} :
+        <small>
+        {{coursesList.length}}
+      </small>
+    </h3>
+    <!-- ul>li*5>lorem1 -->
+    <ul>
+        <ng-container *ngFor="let course of coursesList">
+            <li *ngIf="course.name!='HTML'">
+                {{course.name}}
+            </li>
+        </ng-container>
+
+    </ul>
+</div>

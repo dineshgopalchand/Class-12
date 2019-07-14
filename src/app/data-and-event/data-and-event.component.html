@@ -1,0 +1,35 @@
+<!-- Data binding -->
+<h2>{{title}}</h2>
+
+<!-- property binding -->
+<h2 [textContent]="title"></h2>
+<h2 [innerHTML]="title1"></h2>
+
+
+<!-- Data binding -->
+<!-- <h2>{{title1}}</h2> -->
+<!-- <img src="{{imgSrc}}" alt="Dummy Image"> -->
+
+<!-- Property binding with attr binding-->
+<!-- <img [src]="imgSrc" [attr.data-src-1]="imgSrc" [alt]="'Dummy Image'"> -->
+
+<!-- <img src="./assets/images/1.jpg" alt="Some Image"> -->
+
+<!-- table>tr*4>td*4>lorem1 -->
+<table>
+    <tr>
+        <td [attr.colspan]="colSpan">Lorem.</td>
+        <td>In?</td>
+        <!-- <td>Maxime.</td> -->
+    </tr>
+    <tr>
+        <td>Sint!</td>
+        <td>Sunt.</td>
+        <td [attr.rowspan]="rowSpan">Rerum!</td>
+    </tr>
+    <tr>
+        <td>Ipsam.</td>
+        <td>Aliquam?</td>
+        <!-- <td>Non.</td> -->
+    </tr>
+</table>
