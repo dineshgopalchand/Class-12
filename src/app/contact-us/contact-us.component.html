@@ -1,25 +1,58 @@
 <form ngForm #contactForm="ngForm" (ngSubmit)="formSubmit(contactForm)">
-    <div class="form-group">
-        <input type="text" class="form-control" name="firstname" placeholder="First Name" #firstName="ngModel" ngModel required minlength="3" maxlength="15" pattern="^[a-zA-Z ]+$" (keyup)="inputChange(firstName)">
-    </div>
-    <div class="alert alert-danger" *ngIf="firstName.errors && firstName.touched">
-        <div *ngIf="firstName.errors.required ">
-            First name is required
+    <fieldset ngModelGroup="name" #nameGroup="ngModelGroup">
+        <legend>Name Group
+            <small style="color:red" *ngIf="nameGroup.touched && nameGroup.invalid ">There is some error in Name Group</small>
+        </legend>
+        <div class="form-group">
+            <input type="text" class="form-control" name="firstname" placeholder="First Name" #firstName="ngModel" ngModel required minlength="3" maxlength="15" pattern="^[a-zA-Z ]+$" (keyup)="inputChange(firstName)">
         </div>
-        <div *ngIf="firstName.errors.minlength">First name length is less then 3 </div>
-        <div *ngIf="firstName.errors.maxlength">First name length is More then 15 </div>
-        <div *ngIf="firstName.errors.pattern">First name is not valid </div>
-    </div>
-    <div class="form-group">
-        <input type="text" required ngModel #lastName="ngModel" class="form-control" name="lastname" placeholder="Last Name">
-    </div>
-    <div class="alert alert-danger" *ngIf="lastName.errors && lastName.touched">
-        <div *ngIf="lastName.errors.required ">
-            Last name is required
+        <div class="alert alert-danger" *ngIf="firstName.errors && firstName.touched">
+            <div *ngIf="firstName.errors.required ">
+                First name is required
+            </div>
+            <div *ngIf="firstName.errors.minlength">First name length is less then 3 </div>
+            <div *ngIf="firstName.errors.maxlength">First name length is More then 15 </div>
+            <div *ngIf="firstName.errors.pattern">First name is not valid </div>
         </div>
-    </div>
+        <div class="form-group">
+            <input type="text" required ngModel #lastName="ngModel" class="form-control" name="lastname" placeholder="Last Name">
+        </div>
+        <div class="alert alert-danger" *ngIf="lastName.errors && lastName.touched">
+            <div *ngIf="lastName.errors.required ">
+                Last name is required
+            </div>
+        </div>
+    </fieldset>
     <div class="form-group">
         <textarea name="comment" ngModel class="form-control" placeholder="Ener your comment"></textarea>
+    </div>
+    <!-- div.form-group>label[for]+select[name="mailingoption"].form-control>option*2 -->
+    <div class="form-group">
+        <label for=""></label>
+        <!-- <select name="mailingoption" class="form-control" [(ngModel)]="selectedValue"> -->
+        <select name="mailingoption" class="form-control" required [(ngModel)]="selectedOptObj">
+            <option value="">Select Mailing Option</option>
+            <!-- <option [value]="opt.id" *ngFor="let opt of mailingOption" > -->
+            <option [ngValue]="optItem" *ngFor="let optItem of mailingOption" >
+                {{optItem.value}}
+            </option>
+        </select>
+    </div>
+
+    <!-- div.radio>label[for="contactOption"]>input[type="radio"][ngModel] -->
+    <div class="radio" *ngFor="let mailingOpt of mailingOption">
+        <label for="contactOption">
+            <input type="radio" ngModel [value]="mailingOpt" name="contactOption" >
+            <!-- {{selectedValue==mailingOpt.id}} -->
+            {{mailingOpt.value}}
+        </label>
+    </div>
+    <!-- div.checkbox>label[for]>input[type="checkbox"][name="subscribe"] -->
+    <div class="checkbox">
+        <label for="subscribe">
+            <input type="checkbox" name="subscribe" ngModel>
+            Subscribe to newsletter
+        </label>
     </div>
     <div class="d-flex">
         <button class="btn btn-primary" type="submit" [disabled]="contactForm.invalid">Submit</button>
@@ -28,5 +61,6 @@
 
 </form>
 <div>
-    {{contactForm.errors | json}}
+    {{contactForm.value | json}} <br>
+    <!-- {{nameGroup.valid | json}} -->
 </div>
