@@ -1,0 +1,16 @@
+<!-- div.form-group>input.form-control[type="text"][placeholder] -->
+<div class="form-group">
+    <input type="text" class="form-control" placeholder="Add your topic" #topic (keyup.enter)="addTopic(topic)">
+</div>
+<hr>
+<!-- ul.list-group>li.list-group-item -->
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let item of toDoList.controls;index as i;even as e" [ngClass]="{
+      'list-group-item-info': e,
+      'list-group-item-secondary':!e
+    }">
+        {{i+1}}. {{item.value}}
+    </li>
+</ul>
+<div class="alert alert-info" *ngIf="toDoList.controls.length==0">No list Available</div>
+<!-- {{toDoList.value | json}} -->
