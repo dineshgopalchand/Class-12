@@ -1,0 +1,14 @@
+.form-control.ng-invalid.ng-touched {
+    border: 1px solid #bb2323;
+}
+
+.field-error {
+    border: 1px solid #bb2323;
+}
+
+.form-group-error-message {
+    z-index: 999;
+    position: relative;
+    margin-bottom: -0.5rem;
+    color: red;
+}
