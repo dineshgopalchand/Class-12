@@ -9,7 +9,13 @@
       'list-group-item-info': e,
       'list-group-item-secondary':!e
     }">
-        {{i+1}}. {{item.value}}
+        <button class="btn btn-danger" (click)="removeTopic(item)">Remove</button>
+        <!-- {{i+1}}. {{item.value}} -->
+        {{i+1}}. {{item.value.topicname}}
+        <i (click)="updateTopic(item,'status')" [title]="!item.value.status?'Mark Done':'Marke incompleted'" class="fa fa-check status  float-right" [ngClass]="{
+            'status-checked': item.value.status,
+            'status-unchecked': !item.value.status
+        }"></i>
     </li>
 </ul>
 <div class="alert alert-info" *ngIf="toDoList.controls.length==0">No list Available</div>

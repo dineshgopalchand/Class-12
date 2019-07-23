@@ -1,0 +1,11 @@
+.status {
+    font-size: 1.5rem;
+}
+
+.status-checked {
+    color: green;
+}
+
+.status-unchecked {
+    color: red;
+}
