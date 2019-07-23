@@ -22,6 +22,7 @@ import { InputFormatDirective } from './common/directives/input-format.directive
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
+import { FormBuilderComponent } from './form-builder/form-builder.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import { ToDoListComponent } from './to-do-list/to-do-list.component';
     InputFormatDirective,
     ContactUsComponent,
     SignInComponent,
-    ToDoListComponent
+    ToDoListComponent,
+    FormBuilderComponent
   ],
   imports: [
     BrowserModule,
