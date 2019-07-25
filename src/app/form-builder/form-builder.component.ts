@@ -30,6 +30,15 @@ export class FormBuilderComponent implements OnInit {
         phone: [] // to create Instance of FormControl
       })
     });
+    this.form = fb.group({
+      // name: ['d'],
+      name: fb.control(['d']),
+      topics: fb.array([]),
+      contact: fb.group({
+        email: [],
+        phone: []
+      })
+    });
 
 
   }

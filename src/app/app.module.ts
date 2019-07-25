@@ -23,6 +23,9 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import { FormBuilderComponent } from './form-builder/form-builder.component';
+import { PostsComponent } from './posts/posts.component';
+import { HttpClientModule} from '@angular/common/http';
+// import {HttpModules} from '@angular/http'; // for angular 5
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,13 +46,15 @@ import { FormBuilderComponent } from './form-builder/form-builder.component';
     ContactUsComponent,
     SignInComponent,
     ToDoListComponent,
-    FormBuilderComponent
+    FormBuilderComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     CourseService
