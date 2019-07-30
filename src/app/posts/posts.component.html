@@ -5,7 +5,8 @@
     </div>
     <ul class="list-group">
         <li class="list-group-item" *ngFor="let post of posts ;index as i">
-            <button class="btn btn-danger" (click)="deletePost(post)">Delete</button> {{i+1}}. {{post.title}}
+            <button class="btn btn-danger" (click)="deletePost(post)">Delete</button>
+            <button class="btn btn-primary ml-2 " (click)="updatePost(post)">Update</button> {{i+1}}. {{post.title}}
         </li>
     </ul>
 </div>

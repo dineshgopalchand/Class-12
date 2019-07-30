@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Post } from '../common/helper/post';
+import { PostService } from '../common/services/post.service';
 
 @Component({
   selector: 'app-posts',
@@ -12,10 +13,11 @@ export class PostsComponent implements OnInit {
   newPost = '';
   url = 'http://localhost:3000/posts';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private postService: PostService) { }
 
   ngOnInit() {
-    this.http.get(this.url)
+    // this.http.get(this.url)
+    this.postService.getAll()
       .subscribe(res => {
         // console.log((res as Post[]));
         this.posts = res as Post[];
@@ -27,7 +29,8 @@ export class PostsComponent implements OnInit {
   addPost() {
     console.log(this.newPost);
 
-    this.http.post(this.url, { userId: 1, title: this.newPost, body: '' })
+    // this.http.post(this.url, { userId: 1, title: this.newPost, body: '' })
+    this.postService.addData({ userId: 1, title: this.newPost, body: '' })
       .subscribe(res => {
         console.log(res);
         this.posts.splice(0, 0, res as Post);
@@ -41,6 +44,28 @@ export class PostsComponent implements OnInit {
         console.log(res);
         this.posts.splice(indexVal, 1);
       });
+  }
+  updatePost(post: Post) {
+    // console.log(post);
+    const indexVal = this.posts.indexOf(post);
+    // const newPost = Object.assign(post);
+    // const newPost = post;
+    const newPost = Object.assign({}, post);
+    // const newPost = JSON.parse(JSON.stringify(post));
+    newPost.title = newPost.title + '----';
+    console.log(newPost);
+    this.http.put(this.url + '/' + post.id, newPost)
+      .subscribe(res => {
+        console.log(res);
+        this.posts.splice(indexVal, 1, res as Post);
+      });
+    // this.http.patch(this.url + '/' + post.id, { title: post.title + '....' })
+    //   .subscribe(res => {
+    //     console.log(res);
+    //     this.posts.splice(indexVal, 1, res as Post);
+    //   });
+    // console.log(post);
+    // console.log(this.posts);
   }
 
 }
