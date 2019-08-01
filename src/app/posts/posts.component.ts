@@ -39,7 +39,8 @@ export class PostsComponent implements OnInit {
   }
   deletePost(post: Post) {
     const indexVal = this.posts.indexOf(post);
-    this.http.delete(this.url + '/' + post.id)
+    // this.http.delete(this.url + '/' + post.id)
+    this.postService.delete(post)
       .subscribe(res => {
         console.log(res);
         this.posts.splice(indexVal, 1);
@@ -54,7 +55,8 @@ export class PostsComponent implements OnInit {
     // const newPost = JSON.parse(JSON.stringify(post));
     newPost.title = newPost.title + '----';
     console.log(newPost);
-    this.http.put(this.url + '/' + post.id, newPost)
+    // this.http.put(this.url + '/' + post.id, newPost)
+    this.postService.update(post, newPost)
       .subscribe(res => {
         console.log(res);
         this.posts.splice(indexVal, 1, res as Post);
