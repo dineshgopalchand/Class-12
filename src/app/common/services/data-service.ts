@@ -4,11 +4,16 @@ export class DataService {
     constructor(
         protected http: HttpClient,
         protected url: string
-        ) {
+    ) {
 
     }
     getAll() {
         return this.http.get(this.url);
+    }
+    getAllWithParams(param) {
+        // param = { q: 'apt'}
+        // return this.http.get(this.url + '?q=Apt');
+        return this.http.get(this.url, { params: param });
     }
 
     addData(body: any) {
