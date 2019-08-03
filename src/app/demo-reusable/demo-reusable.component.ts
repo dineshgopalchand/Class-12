@@ -5,7 +5,7 @@ import { FavResponse } from '../favourite/favourite.component';
 @Component({
   selector: 'app-demo-reusable',
   // template: '<div >.some message</div>',
-  templateUrl: './demo-reusable.component.html',
+  // templateUrl: './demo-reusable.component.html',
   //   template: '<div *ngFor="let item of postDetails">\
   //   <app-favourite [fav-item-details]="item" (likeChange)="postChange($event)"></app-favourite>\
   // </div>',

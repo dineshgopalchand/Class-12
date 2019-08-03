@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Post } from '../common/helper/post';
 import { PostService } from '../common/services/post.service';
-
+import { NotFoundErrors } from '../common/errors/not-found-errors';
+import { BadInputErrors } from '../common/errors/bad-input-errors';
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
@@ -21,6 +22,16 @@ export class PostsComponent implements OnInit {
       .subscribe(res => {
         // console.log((res as Post[]));
         this.posts = res as Post[];
+      }, error => {
+        if (error instanceof NotFoundErrors) {
+          console.log('Not Found Error');
+        } else
+          if (error instanceof BadInputErrors) {
+            console.log('Bad Input Error');
+          }
+        console.log(error);
+      }, () => {
+        console.log('its completed');
       });
     // fetch('http://localhost:3000/posts').then(res => {
     //   console.log(res.json());
