@@ -26,6 +26,10 @@ import { FormBuilderComponent } from './form-builder/form-builder.component';
 import { PostsComponent } from './posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppErrorHandler } from './common/errors/app-error-handler';
+import { NotFoundComponent } from './default/not-found/not-found.component';
+import { HomeComponent } from './home/home.component';
+import { GitFollowersComponent } from './git-followers/git-followers.component';
+import { ToolTipDirective } from './common/directives/tool-tip.directive';
 // import {HttpModules} from '@angular/http'; // for angular 5
 @NgModule({
   declarations: [
@@ -49,6 +53,10 @@ import { AppErrorHandler } from './common/errors/app-error-handler';
     ToDoListComponent,
     FormBuilderComponent,
     PostsComponent,
+    NotFoundComponent,
+    HomeComponent,
+    GitFollowersComponent,
+    ToolTipDirective,
   ],
   imports: [
     BrowserModule,

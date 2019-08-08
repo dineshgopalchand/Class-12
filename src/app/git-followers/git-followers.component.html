@@ -1,0 +1,20 @@
+<div class="get-input" *ngIf="showInputbox">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter Git User ID" #newUsername (keyup.enter)="udpateUsername(newUsername)">
+    </div>
+</div>
+<div *ngIf="!showInputbox" (click)="showInputbox=!showInputbox" class="edit-user btn btn-link">Edit user</div>
+<div class="show-details" *ngIf="userName!=''">
+    <h3>Git Follower List</h3>
+    <ul class="list-unstyled">
+        <li class="media" *ngFor="let fd of followersList">
+            <img class="mr-3 user-image" [src]="fd.avatar_url" [alt]="fd.login +'Image'">
+            <div class="media-body">
+                <h5 class="mt-0 mb-1">{{fd.login}}</h5>
+                <div>
+                    some text
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

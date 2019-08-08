@@ -18,6 +18,10 @@ export class PostsComponent implements OnInit {
 
   ngOnInit() {
     // this.http.get(this.url)
+    // this.postService.getAll().toPromise()
+    //   .then(res => {
+    //     console.log(res);
+    //   });
     this.postService.getAll()
       .subscribe(res => {
         // console.log((res as Post[]));
