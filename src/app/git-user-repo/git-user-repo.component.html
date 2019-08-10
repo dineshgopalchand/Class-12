@@ -1,0 +1,23 @@
+<!-- <p>
+    git-user-repo works!
+</p>
+{{reposList | json}} -->
+<div class="repo-list">
+    <h3>Repo list name</h3>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let repo of reposList">
+            {{repo.name}}
+        </li>
+    </ul>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination" *ngIf="totalNumber>limit">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item" *ngFor="let page of pageCountArr"><a class="page-link" [routerLink]="['/user-repo/',userName,userId]" [queryParams]="{
+              start: (this.start * this.limit),
+              pagenumber:page+1,
+              limit:this.limit
+            }">{{page+1}}</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+    </nav>
+</div>

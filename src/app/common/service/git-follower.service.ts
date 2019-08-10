@@ -22,7 +22,7 @@ export class GitFollowerService extends DataService {
     .pipe(catchError(this.errorHandler));
   }
   getUserDetails(username: string) {
-    return this.http.get(this.url + 'users/' + username + '/')
+    return this.http.get(this.url + 'users/' + username )
     .pipe(catchError(this.errorHandler));
   }
 }

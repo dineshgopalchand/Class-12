@@ -4,3 +4,9 @@
     overflow-y: hidden;
     border-radius: 500%;
 }
+
+.show-user-profile {
+    float: right;
+    border: 1px solid gray;
+    box-shadow: 2px 1px 12px #333;
+}

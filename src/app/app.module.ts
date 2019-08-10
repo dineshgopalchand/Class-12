@@ -30,6 +30,7 @@ import { NotFoundComponent } from './default/not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { GitFollowersComponent } from './git-followers/git-followers.component';
 import { ToolTipDirective } from './common/directives/tool-tip.directive';
+import { GitUserRepoComponent } from './git-user-repo/git-user-repo.component';
 // import {HttpModules} from '@angular/http'; // for angular 5
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { ToolTipDirective } from './common/directives/tool-tip.directive';
     HomeComponent,
     GitFollowersComponent,
     ToolTipDirective,
+    GitUserRepoComponent,
   ],
   imports: [
     BrowserModule,

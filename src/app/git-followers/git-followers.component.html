@@ -5,6 +5,9 @@
 </div>
 <div *ngIf="!showInputbox" (click)="showInputbox=!showInputbox" class="edit-user btn btn-link">Edit user</div>
 <div class="show-details" *ngIf="userName!=''">
+    <div class="show-user-profile w-50" *ngIf="userDetails.login">
+        {{userDetails | json}}
+    </div>
     <h3>Git Follower List</h3>
     <ul class="list-unstyled">
         <li class="media" *ngFor="let fd of followersList">
@@ -12,7 +15,11 @@
             <div class="media-body">
                 <h5 class="mt-0 mb-1">{{fd.login}}</h5>
                 <div>
-                    some text
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel vero nulla accusamus ut cumque id laboriosam voluptatem a consequuntur at?</span>
+                </div>
+                <div>
+                    <button class="btn btn-link m-1 pr-3" (click)="getUserDetails(fd.login)">Show Profie</button>
+                    <button class="btn btn-link m-1 pr-3" [routerLink]="['/user-repo',fd.login,fd.id]">Show Repo List</button>
                 </div>
             </div>
         </li>

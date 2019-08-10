@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { BadInputErrors } from '../errors/bad-input-errors';
 import { NotFoundErrors } from '../errors/not-found-errors';
@@ -24,16 +24,16 @@ export class DataService {
 
     addData(body: any) {
         return this.http.post(this.url, body)
-        .pipe(catchError(this.errorHandler));
+            .pipe(catchError(this.errorHandler));
     }
 
     delete(data) {
         return this.http.delete(this.url + '/' + data.id)
-        .pipe(catchError(this.errorHandler));
+            .pipe(catchError(this.errorHandler));
     }
     update(data, body) {
         return this.http.put(this.url + '/' + data.id, body)
-        .pipe(catchError(this.errorHandler));
+            .pipe(catchError(this.errorHandler));
     }
     protected errorHandler = (error: Response) => {
         if (error.status === 404) {

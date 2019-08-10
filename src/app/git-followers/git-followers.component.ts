@@ -14,7 +14,9 @@ export class GitFollowersComponent implements OnInit {
   constructor(private gfs: GitFollowerService) { }
 
   ngOnInit() {
+    this.userName = this.userName ? this.userName : 'alxhub';
     this.showInputbox = this.userName !== '' ? false : true;
+    this.getFollowerList();
   }
   udpateUsername(input: HTMLInputElement) {
     this.showInputbox = false;
@@ -28,8 +30,8 @@ export class GitFollowersComponent implements OnInit {
         this.followersList = res as any[];
       });
   }
-  getUserDetails() {
-    this.gfs.getUserDetails(this.userName)
+  getUserDetails(userid: string) {
+    this.gfs.getUserDetails(userid)
       .subscribe(res => {
         console.log(res);
         this.userDetails = res;

@@ -7,12 +7,16 @@ import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import { GitFollowersComponent } from './git-followers/git-followers.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { GitUserRepoComponent } from './git-user-repo/git-user-repo.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'posts', component: PostsComponent },
   { path: 'to-do-list', component: ToDoListComponent },
   { path: 'git-follower', component: GitFollowersComponent },
+  // { path: 'git-follower', component: GitFollowersComponent },
+  { path: 'user-repo/:username/:userid', component: GitUserRepoComponent },
+  // { path: 'user-repo/:username', component: GitUserRepoComponent },
   { path: 'contact', component: ContactUsComponent },
   { path: 'signup', component: SignInComponent },
   { path: '**', component: NotFoundComponent },
