@@ -19,7 +19,8 @@
                 </div>
                 <div>
                     <button class="btn btn-link m-1 pr-3" (click)="getUserDetails(fd.login)">Show Profie</button>
-                    <button class="btn btn-link m-1 pr-3" [routerLink]="['/user-repo',fd.login,fd.id]">Show Repo List</button>
+                    <button class="btn btn-link m-1 pr-3" [routerLink]="['/user-repo',fd.login,fd.id]" [queryParams]="{ pagenumber:1,
+                    limit:10}">Show Repo List</button>
                 </div>
             </div>
         </li>
